@@ -1,0 +1,3 @@
+# Sherlock uses only standard libraries.
+# This file is provided for deployment compatibility.
+pip

@@ -1,0 +1,8 @@
+.DS_Store
+*.zip
+__pycache__/
+*.pyc
+.env
+.venv/
+/sherlock_bin
+fixtures/*.dat
