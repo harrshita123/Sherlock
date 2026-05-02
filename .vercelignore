@@ -1,0 +1,12 @@
+# Exclude large data files from deployment
+fixtures/
+out/
+*.dat.gz
+*.dat
+
+# Git
+.git/
+
+# Development files
+benchmark.log
+*.log

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/health",
+      "dest": "/api/health.py"
+    },
+    {
+      "src": "/api/files",
+      "dest": "/api/files.py"
+    },
+    {
+      "src": "/api/analyze",
+      "dest": "/api/analyze.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/sherlock/web/static/index.html"
+    }
+  ]
+}
