@@ -11,7 +11,7 @@ import urllib.request
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from sherlock.analysis.runner import run_analysis
-from sherlock.report.generator import generate_markdown_report
+# Skip markdown generation on serverless (read-only filesystem)
 
 # Blob storage base URL
 BLOB_BASE_URL = "https://bg4wqyfw9rdueaik.public.blob.vercel-storage.com/fixtures"
@@ -81,9 +81,8 @@ class handler(BaseHTTPRequestHandler):
                     self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"XOR key {xor_file} not found in storage."}}, status=404)
                     return
 
-                # Run analysis
+                # Run analysis (returns JSON report, no file writing needed)
                 report, stem = run_analysis(blk_path, rev_path, xor_path)
-                generate_markdown_report(report, stem)
                 
                 self.send_json(report)
         except Exception as e:
