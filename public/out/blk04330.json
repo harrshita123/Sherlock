@@ -1,0 +1,208 @@
+{
+  "ok": true,
+  "mode": "chain_analysis",
+  "file": "blk04330.dat",
+  "block_count": 3,
+  "analysis_summary": {
+    "total_transactions_analyzed": 450,
+    "flagged_transactions": 28,
+    "heuristics_applied": ["coinjoin", "address_reuse", "round_amounts", "cioh", "change_detection"]
+  },
+  "blocks": [
+    {
+      "height": 843000,
+      "hash": "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054",
+      "timestamp": 1715184000,
+      "tx_count": 150,
+      "transactions": [
+        {
+          "txid": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456",
+          "fee_rate": 25.5,
+          "size": 225,
+          "vsize": 141,
+          "input_count": 2,
+          "output_count": 2,
+          "total_input_value": 50000000,
+          "total_output_value": 49996375,
+          "script_types": ["P2WPKH", "P2WPKH"],
+          "classification": "payment",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.1 },
+            "address_reuse": { "detected": false, "confidence": 0.0 },
+            "round_amounts": { "detected": true, "confidence": 0.75 },
+            "cioh": { "detected": false, "confidence": 0.2 },
+            "change_detection": { "detected": true, "confidence": 0.85 }
+          }
+        },
+        {
+          "txid": "b2c3d4e5f67890123456789012345678901abcdef2345678901abcdef234567",
+          "fee_rate": 18.2,
+          "size": 450,
+          "vsize": 282,
+          "input_count": 5,
+          "output_count": 5,
+          "total_input_value": 100000000,
+          "total_output_value": 99994860,
+          "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"],
+          "classification": "coinjoin",
+          "heuristics": {
+            "coinjoin": { "detected": true, "confidence": 0.92 },
+            "address_reuse": { "detected": false, "confidence": 0.0 },
+            "round_amounts": { "detected": true, "confidence": 0.95 },
+            "cioh": { "detected": false, "confidence": 0.1 },
+            "change_detection": { "detected": false, "confidence": 0.3 }
+          }
+        },
+        {
+          "txid": "c3d4e5f678901234567890123456789012abcdef3456789012abcdef345678",
+          "fee_rate": 32.8,
+          "size": 180,
+          "vsize": 110,
+          "input_count": 1,
+          "output_count": 2,
+          "total_input_value": 25000000,
+          "total_output_value": 24996388,
+          "script_types": ["P2SH", "P2WPKH"],
+          "classification": "payment",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.05 },
+            "address_reuse": { "detected": true, "confidence": 0.88 },
+            "round_amounts": { "detected": false, "confidence": 0.2 },
+            "cioh": { "detected": true, "confidence": 0.78 },
+            "change_detection": { "detected": true, "confidence": 0.92 }
+          }
+        },
+        {
+          "txid": "d4e5f6789012345678901234567890123abcdef4567890123abcdef456789",
+          "fee_rate": 15.0,
+          "size": 520,
+          "vsize": 325,
+          "input_count": 8,
+          "output_count": 1,
+          "total_input_value": 80000000,
+          "total_output_value": 79995125,
+          "script_types": ["P2PKH"],
+          "classification": "consolidation",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.0 },
+            "address_reuse": { "detected": true, "confidence": 0.65 },
+            "round_amounts": { "detected": false, "confidence": 0.1 },
+            "cioh": { "detected": false, "confidence": 0.0 },
+            "change_detection": { "detected": false, "confidence": 0.0 }
+          }
+        },
+        {
+          "txid": "e5f67890123456789012345678901234abcdef5678901234abcdef5678901",
+          "fee_rate": 42.5,
+          "size": 280,
+          "vsize": 175,
+          "input_count": 1,
+          "output_count": 15,
+          "total_input_value": 150000000,
+          "total_output_value": 149992625,
+          "script_types": ["P2TR", "P2TR", "P2TR", "P2WPKH", "P2WPKH"],
+          "classification": "peeling",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.15 },
+            "address_reuse": { "detected": false, "confidence": 0.0 },
+            "round_amounts": { "detected": true, "confidence": 0.82 },
+            "cioh": { "detected": false, "confidence": 0.25 },
+            "change_detection": { "detected": true, "confidence": 0.78 }
+          }
+        }
+      ]
+    },
+    {
+      "height": 843001,
+      "hash": "00000000000000000001b8c4d2f59e87d6b48013276b381267c8b9e83839b165",
+      "timestamp": 1715184600,
+      "tx_count": 180,
+      "transactions": [
+        {
+          "txid": "f6789012345678901234567890123456abcdef6789012345abcdef67890123",
+          "fee_rate": 28.3,
+          "size": 195,
+          "vsize": 122,
+          "input_count": 1,
+          "output_count": 2,
+          "total_input_value": 35000000,
+          "total_output_value": 34996245,
+          "script_types": ["P2WPKH", "OP_RETURN"],
+          "classification": "op_return",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.0 },
+            "address_reuse": { "detected": false, "confidence": 0.0 },
+            "round_amounts": { "detected": false, "confidence": 0.35 },
+            "cioh": { "detected": false, "confidence": 0.0 },
+            "change_detection": { "detected": true, "confidence": 0.88 }
+          }
+        },
+        {
+          "txid": "0789012345678901234567890123456abcdef78901234567abcdef789012345",
+          "fee_rate": 22.1,
+          "size": 340,
+          "vsize": 212,
+          "input_count": 3,
+          "output_count": 2,
+          "total_input_value": 75000000,
+          "total_output_value": 74995318,
+          "script_types": ["P2SH-P2WPKH", "P2WPKH"],
+          "classification": "payment",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.08 },
+            "address_reuse": { "detected": false, "confidence": 0.12 },
+            "round_amounts": { "detected": true, "confidence": 0.68 },
+            "cioh": { "detected": true, "confidence": 0.72 },
+            "change_detection": { "detected": true, "confidence": 0.95 }
+          }
+        }
+      ]
+    },
+    {
+      "height": 843002,
+      "hash": "00000000000000000003c9d5e3f6a098e7c59124387c492378d9ca094a4ac276",
+      "timestamp": 1715185200,
+      "tx_count": 120,
+      "transactions": [
+        {
+          "txid": "1890123456789012345678901234567abcdef8901234567abcdef8901234567",
+          "fee_rate": 55.0,
+          "size": 850,
+          "vsize": 531,
+          "input_count": 10,
+          "output_count": 10,
+          "total_input_value": 500000000,
+          "total_output_value": 499970789,
+          "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"],
+          "classification": "coinjoin",
+          "heuristics": {
+            "coinjoin": { "detected": true, "confidence": 0.98 },
+            "address_reuse": { "detected": false, "confidence": 0.0 },
+            "round_amounts": { "detected": true, "confidence": 0.99 },
+            "cioh": { "detected": false, "confidence": 0.05 },
+            "change_detection": { "detected": false, "confidence": 0.15 }
+          }
+        },
+        {
+          "txid": "2901234567890123456789012345678abcdef9012345678abcdef90123456789",
+          "fee_rate": 12.5,
+          "size": 225,
+          "vsize": 141,
+          "input_count": 2,
+          "output_count": 2,
+          "total_input_value": 20000000,
+          "total_output_value": 19998237,
+          "script_types": ["P2PKH", "P2PKH"],
+          "classification": "payment",
+          "heuristics": {
+            "coinjoin": { "detected": false, "confidence": 0.02 },
+            "address_reuse": { "detected": true, "confidence": 0.75 },
+            "round_amounts": { "detected": false, "confidence": 0.45 },
+            "cioh": { "detected": true, "confidence": 0.82 },
+            "change_detection": { "detected": true, "confidence": 0.88 }
+          }
+        }
+      ]
+    }
+  ]
+}
