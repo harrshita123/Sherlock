@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "",
-  "outputDirectory": "public",
   "builds": [
     {
       "src": "api/**/*.py",
@@ -26,12 +24,8 @@
       "dest": "/api/analyze.py"
     },
     {
-      "src": "/out/(.*)",
-      "dest": "/public/out/$1"
-    },
-    {
-      "src": "/fixtures/(.*)",
-      "dest": "/public/fixtures/$1"
+      "src": "/(.*\\.json)",
+      "dest": "/public/$1"
     },
     {
       "src": "/(.*)",

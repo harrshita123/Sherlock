@@ -924,7 +924,7 @@
 
       select.onchange = async (e) => {
         if (!e.target.value) return;
-        const data = await fetch(`/out/${e.target.value}.json`).then((r) => r.json());
+        const data = await fetch(`/${e.target.value}.json`).then((r) => r.json());
         currentData = data;
         currentBlockIndex = 0;
         render();

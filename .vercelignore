@@ -1,9 +1,6 @@
-# Exclude large data files from deployment (but keep public copies)
-fixtures/
-out/
-# Keep public directories with data files
-!public/out/
-!public/fixtures/
+# Exclude root level large data directories (not inside public)
+/fixtures/
+/out/
 
 # Git
 .git/
@@ -11,3 +8,8 @@ out/
 # Development files
 benchmark.log
 *.log
+
+# Node modules (if any)
+node_modules/
+
+# Don't ignore public directory contents
