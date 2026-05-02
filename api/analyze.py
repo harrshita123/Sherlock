@@ -3,12 +3,18 @@ import json
 import os
 import sys
 import traceback
+import tempfile
+import gzip
+import urllib.request
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from sherlock.analysis.runner import run_analysis
 from sherlock.report.generator import generate_markdown_report
+
+# Blob storage base URL
+BLOB_BASE_URL = "https://bg4wqyfw9rdueaik.public.blob.vercel-storage.com/fixtures"
 
 class handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
@@ -33,9 +39,6 @@ class handler(BaseHTTPRequestHandler):
                 self.send_json({"ok": False, "error": {"code": "MISSING_FILES", "message": "BLK and XOR files are required."}}, status=400)
                 return
 
-            # Get base directory
-            base_dir = os.path.join(os.path.dirname(__file__), '..')
-            
             # Strict ID matching validation
             blk_id = "".join(filter(str.isdigit, os.path.basename(blk_file)))
             if rev_file:
@@ -46,53 +49,80 @@ class handler(BaseHTTPRequestHandler):
             else:
                 rev_file = blk_file.replace("blk", "rev")
 
-            # Map to fixtures (check public/fixtures first, then root fixtures)
-            blk_basename = os.path.basename(blk_file)
-            rev_basename = os.path.basename(rev_file)
+            # Get base names
+            blk_basename = os.path.basename(blk_file).replace('.dat', '')
+            rev_basename = os.path.basename(rev_file).replace('.dat', '')
             xor_basename = os.path.basename(xor_file)
-            
-            # Try public/fixtures first (for Vercel deployment), then root fixtures
-            public_fixtures = os.path.join(base_dir, "public", "fixtures")
-            root_fixtures = os.path.join(base_dir, "fixtures")
-            
-            if os.path.exists(os.path.join(public_fixtures, blk_basename)) or os.path.exists(os.path.join(public_fixtures, blk_basename + ".gz")):
-                fixtures_dir = public_fixtures
-            else:
-                fixtures_dir = root_fixtures
-            
-            blk_path = os.path.join(fixtures_dir, blk_basename)
-            rev_path = os.path.join(fixtures_dir, rev_basename)
-            xor_path = os.path.join(fixtures_dir, xor_basename)
 
-            # Verify fixtures exist
-            if not os.path.exists(blk_path):
-                self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"Block file {blk_file} not found."}}, status=404)
-                return
-            if rev_file and not os.path.exists(rev_path):
-                self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"Undo file {rev_file} not found."}}, status=404)
-                return
-            if not os.path.exists(xor_path):
-                self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"XOR key {xor_file} not found."}}, status=404)
-                return
+            stem = blk_basename.replace(".gz", "")
 
-            stem = os.path.basename(blk_file).replace(".gz", "").replace(".dat", "")
-            json_path = os.path.join(base_dir, "out", f"{stem}.json")
-
-            # Check cache
+            # Check cache in public/out first
+            base_dir = os.path.join(os.path.dirname(__file__), '..')
+            json_path = os.path.join(base_dir, "public", "out", f"{stem}.json")
             if os.path.exists(json_path):
                 with open(json_path, 'r') as f:
                     report = json.load(f)
                 self.send_json(report)
                 return
 
-            # Run analysis
-            report, stem = run_analysis(blk_path, rev_path, xor_path)
-            generate_markdown_report(report, stem)
-            
-            self.send_json(report)
+            # Download files from Blob storage to temp directory
+            with tempfile.TemporaryDirectory() as tmpdir:
+                blk_path = self.download_and_extract(f"{blk_basename}.dat.gz", tmpdir)
+                rev_path = self.download_and_extract(f"{rev_basename}.dat.gz", tmpdir)
+                xor_path = self.download_file(xor_basename, tmpdir)
+
+                if not blk_path:
+                    self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"Block file {blk_file} not found in storage."}}, status=404)
+                    return
+                if not rev_path:
+                    self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"Undo file {rev_file} not found in storage."}}, status=404)
+                    return
+                if not xor_path:
+                    self.send_json({"ok": False, "error": {"code": "FILE_NOT_FOUND", "message": f"XOR key {xor_file} not found in storage."}}, status=404)
+                    return
+
+                # Run analysis
+                report, stem = run_analysis(blk_path, rev_path, xor_path)
+                generate_markdown_report(report, stem)
+                
+                self.send_json(report)
         except Exception as e:
             print(f"Error: {traceback.format_exc()}")
-            self.send_json({"ok": False, "error": str(e)}, status=500)
+            self.send_json({"ok": False, "error": {"code": "ANALYSIS_ERROR", "message": str(e)}}, status=500)
+
+    def download_and_extract(self, filename, tmpdir):
+        """Download a gzipped file from Blob storage and extract it."""
+        try:
+            url = f"{BLOB_BASE_URL}/{filename}"
+            gz_path = os.path.join(tmpdir, filename)
+            dat_path = gz_path.replace('.gz', '')
+            
+            print(f"Downloading {url}...")
+            urllib.request.urlretrieve(url, gz_path)
+            
+            # Extract gzip
+            with gzip.open(gz_path, 'rb') as f_in:
+                with open(dat_path, 'wb') as f_out:
+                    f_out.write(f_in.read())
+            
+            return dat_path
+        except Exception as e:
+            print(f"Error downloading {filename}: {e}")
+            return None
+
+    def download_file(self, filename, tmpdir):
+        """Download a file from Blob storage."""
+        try:
+            url = f"{BLOB_BASE_URL}/{filename}"
+            file_path = os.path.join(tmpdir, filename)
+            
+            print(f"Downloading {url}...")
+            urllib.request.urlretrieve(url, file_path)
+            
+            return file_path
+        except Exception as e:
+            print(f"Error downloading {filename}: {e}")
+            return None
 
     def send_json(self, data, status=200):
         body = json.dumps(data).encode('utf-8')

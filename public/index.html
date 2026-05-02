@@ -708,38 +708,36 @@
   <main>
     <div class="container">
       <div class="upload-section">
-        <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">INGEST DATA FILES</div>
+        <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">SELECT BLOCK DATA</div>
+        <div class="upload-subtitle" style="font-size:0.9rem; color: var(--text-dim); margin-bottom:1.5rem;">
+          Choose from available Bitcoin block data files stored on the server.
+        </div>
         <div class="upload-grid">
           <div class="upload-field">
-            <div class="file-input-wrapper">
-              <div id="blkLabel" class="btn-file">
-                <span class="info-label" style="font-size:0.6rem; margin-bottom:0.4rem">Block Data</span>
-                <span class="file-name">...</span>
-              </div>
-              <input type="file" id="blkFile" accept=".dat" onchange="updateLabel('blkFile', 'blkLabel', 'Block Data')" />
-            </div>
+            <label style="font-size:0.7rem; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">Block Data</label>
+            <select id="blkSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+              <option value="">Select a block file...</option>
+              <option value="blk04330.dat">blk04330.dat</option>
+              <option value="blk05051.dat">blk05051.dat</option>
+            </select>
           </div>
           <div class="upload-field">
-            <div class="file-input-wrapper">
-              <div id="revLabel" class="btn-file">
-                <span class="info-label" style="font-size:0.6rem; margin-bottom:0.4rem">Undo Data</span>
-                <span class="file-name">...</span>
-              </div>
-              <input type="file" id="revFile" accept=".dat" onchange="updateLabel('revFile', 'revLabel', 'Undo Data')" />
-            </div>
+            <label style="font-size:0.7rem; color: var(--accent-secondary); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">Undo Data</label>
+            <select id="revSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+              <option value="">Auto-detected</option>
+              <option value="rev04330.dat">rev04330.dat</option>
+              <option value="rev05051.dat">rev05051.dat</option>
+            </select>
           </div>
           <div class="upload-field">
-            <div class="file-input-wrapper">
-              <div id="xorLabel" class="btn-file">
-                <span class="info-label" style="font-size:0.6rem; margin-bottom:0.4rem">XOR Key</span>
-                <span class="file-name">...</span>
-              </div>
-              <input type="file" id="xorFile" accept=".dat" onchange="updateLabel('xorFile', 'xorLabel', 'XOR Key')" />
-            </div>
+            <label style="font-size:0.7rem; color: var(--warning); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">XOR Key</label>
+            <select id="xorSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
+              <option value="xor.dat" selected>xor.dat (default)</option>
+            </select>
           </div>
         </div>
         <div class="upload-actions" style="margin-top: 2rem;">
-          <button id="analyzeBtn" class="btn-primary" onclick="handleUpload()">Launch Analysis</button>
+          <button id="analyzeBtn" class="btn-primary" onclick="handleServerAnalysis()">Launch Analysis</button>
           <div id="uploadStatus" class="upload-status-msg"></div>
         </div>
       </div>
@@ -958,28 +956,23 @@
       });
     }
 
-    async function handleUpload() {
-      const blk = document.getElementById("blkFile").files[0];
-      const rev = document.getElementById("revFile").files[0];
-      const xor = document.getElementById("xorFile").files[0];
+    async function handleServerAnalysis() {
+      const blk = document.getElementById("blkSelect").value;
+      const rev = document.getElementById("revSelect").value;
+      const xor = document.getElementById("xorSelect").value;
       const btn = document.getElementById("analyzeBtn");
       const status = document.getElementById("uploadStatus");
 
-      if (!blk || !xor) {
+      if (!blk) {
         status.style.display = "block";
-        status.innerHTML = '<span style="color:#f85149">Error: BLK and XOR files are required.</span>';
+        status.innerHTML = '<span style="color:#f85149">Error: Please select a block file.</span>';
         return;
       }
-
-      const formData = new FormData();
-      formData.append("blk", blk);
-      if (rev) formData.append("rev", rev);
-      formData.append("xor", xor);
 
       btn.disabled = true;
       btn.textContent = "Analyzing...";
       status.style.display = "block";
-      status.innerHTML = '<span style="color:#58a6ff">Uploading and analyzing... please wait.</span>';
+      status.innerHTML = '<span style="color:#58a6ff">Downloading and analyzing block data... this may take a minute.</span>';
 
       document.getElementById("content").style.display = "none";
       currentData = null;
@@ -989,9 +982,9 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            blk: blk.name,
-            rev: rev ? rev.name : null,
-            xor: xor.name
+            blk: blk,
+            rev: rev || null,
+            xor: xor
           })
         });
         const result = await resp.json();
@@ -1013,7 +1006,7 @@
               opt.textContent = f;
               select.appendChild(opt);
             });
-            const stem = blk.name.replace(".gz", "").replace(".dat", "");
+            const stem = blk.replace(".gz", "").replace(".dat", "");
             select.value = stem;
           });
         } else {

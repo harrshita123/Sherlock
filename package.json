@@ -1,0 +1,24 @@
+{
+  "name": "v0-project",
+  "version": "1.0.0",
+  "description": "Sherlock is a forensic tool that looks at raw Bitcoin data to find hidden patterns. It helps identify who owns which addresses and how they are spending their money by using \"heuristics\" (smart guesses based on blockchain behavior).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harrshita123/Sherlock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/harrshita123/Sherlock/issues"
+  },
+  "homepage": "https://github.com/harrshita123/Sherlock#readme",
+  "dependencies": {
+    "@vercel/blob": "^2.3.3"
+  }
+}
