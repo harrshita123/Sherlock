@@ -1,10 +1,9 @@
-# Exclude large data files from deployment
+# Exclude large data files from deployment (but keep public copies)
 fixtures/
-# Keep public/out for sample JSON files, but exclude root out/
 out/
+# Keep public directories with data files
 !public/out/
-*.dat.gz
-*.dat
+!public/fixtures/
 
 # Git
 .git/

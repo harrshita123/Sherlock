@@ -46,10 +46,23 @@ class handler(BaseHTTPRequestHandler):
             else:
                 rev_file = blk_file.replace("blk", "rev")
 
-            # Map to fixtures
-            blk_path = os.path.join(base_dir, "fixtures", os.path.basename(blk_file))
-            rev_path = os.path.join(base_dir, "fixtures", os.path.basename(rev_file))
-            xor_path = os.path.join(base_dir, "fixtures", os.path.basename(xor_file))
+            # Map to fixtures (check public/fixtures first, then root fixtures)
+            blk_basename = os.path.basename(blk_file)
+            rev_basename = os.path.basename(rev_file)
+            xor_basename = os.path.basename(xor_file)
+            
+            # Try public/fixtures first (for Vercel deployment), then root fixtures
+            public_fixtures = os.path.join(base_dir, "public", "fixtures")
+            root_fixtures = os.path.join(base_dir, "fixtures")
+            
+            if os.path.exists(os.path.join(public_fixtures, blk_basename)) or os.path.exists(os.path.join(public_fixtures, blk_basename + ".gz")):
+                fixtures_dir = public_fixtures
+            else:
+                fixtures_dir = root_fixtures
+            
+            blk_path = os.path.join(fixtures_dir, blk_basename)
+            rev_path = os.path.join(fixtures_dir, rev_basename)
+            xor_path = os.path.join(fixtures_dir, xor_basename)
 
             # Verify fixtures exist
             if not os.path.exists(blk_path):
