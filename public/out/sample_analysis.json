@@ -1,145 +1,277 @@
 {
   "ok": true,
   "mode": "chain_analysis",
-  "file": "sample_report.dat",
+  "file": "sample_analysis.dat",
   "block_count": 3,
   "analysis_summary": {
     "total_transactions_analyzed": 150,
     "total_inputs": 320,
     "total_outputs": 425,
-    "flagged_transactions": 5,
-    "heuristics_applied": ["address_reuse", "round_number", "change_detection", "timing_analysis"]
+    "flagged_transactions": 28,
+    "heuristics_applied": ["cioh", "change_detection", "address_reuse", "coinjoin", "consolidation", "peeling_chain", "op_return"],
+    "fee_rate_stats": { "min_sat_vb": 1.5, "max_sat_vb": 185.2, "median_sat_vb": 22.5, "mean_sat_vb": 48.7 }
   },
   "blocks": [
     {
-      "block_height": 789123,
       "block_hash": "0000000000000000000234abc789def456789abc123def456789abcdef123456",
-      "timestamp": 1704067200,
-      "transaction_count": 50,
+      "block_height": 789123,
+      "block_timestamp": 1684000000,
+      "tx_count": 50,
       "transactions": [
         {
           "txid": "abc123def456789abcdef123456789abcdef123456789abcdef123456789abc1",
-          "inputs": [
-            {
-              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
-              "value": 0.5,
-              "prev_txid": "def456789abc123def456789abc123def456789abc123def456789abc123def4"
-            }
-          ],
-          "outputs": [
-            {
-              "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
-              "value": 0.3
-            },
-            {
-              "address": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
-              "value": 0.19
-            }
-          ],
-          "flags": [],
+          "classification": "coinjoin",
+          "fee_rate": 12.5,
+          "script_types": ["P2WPKH", "P2SH"],
           "heuristics": {
-            "address_reuse": false,
-            "round_number": false,
-            "change_detection": true,
-            "timing_analysis": false
+            "cioh": {"detected": true, "confidence": 0.85},
+            "coinjoin": {"detected": true, "confidence": 0.92},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
           }
         },
         {
           "txid": "def789abc123456789abcdef123456789abcdef123456789abcdef123456789d2",
-          "inputs": [
-            {
-              "address": "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2",
-              "value": 1.0
-            }
-          ],
-          "outputs": [
-            {
-              "address": "1CounterpartyXXXXXXXXXXXXXXXUWLpVr",
-              "value": 0.5
-            },
-            {
-              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
-              "value": 0.49
-            }
-          ],
-          "flags": ["address_reuse", "round_number"],
+          "classification": "payment",
+          "fee_rate": 45.0,
+          "script_types": ["P2PKH"],
           "heuristics": {
-            "address_reuse": true,
-            "round_number": true,
-            "change_detection": false,
-            "timing_analysis": false
+            "address_reuse": {"detected": true, "confidence": 1.0},
+            "change_detection": {"detected": true, "confidence": 0.75},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "coinjoin": {"detected": false, "confidence": 0.0}
           }
-        }
-      ]
-    },
-    {
-      "block_height": 789124,
-      "block_hash": "0000000000000000000567def123abc789456def789abc123456def789abc1234",
-      "timestamp": 1704067800,
-      "transaction_count": 45,
-      "transactions": [
+        },
         {
           "txid": "ghi456jkl789mno123pqr456stu789vwx123yza456bcd789efg123hij456klm3",
-          "inputs": [
-            {
-              "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
-              "value": 0.3
-            }
-          ],
-          "outputs": [
-            {
-              "address": "bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4",
-              "value": 0.1
-            },
-            {
-              "address": "bc1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3qccfmv3",
-              "value": 0.19
-            }
-          ],
-          "flags": ["timing_analysis"],
+          "classification": "consolidation",
+          "fee_rate": 8.2,
+          "script_types": ["P2WPKH"],
           "heuristics": {
-            "address_reuse": false,
-            "round_number": false,
-            "change_detection": true,
-            "timing_analysis": true
+            "consolidation": {"detected": true, "confidence": 0.95},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "jkl789mno123pqr456stu789vwx123yza456bcd789efg123hij456klm789nop4",
+          "classification": "peeling",
+          "fee_rate": 65.3,
+          "script_types": ["P2SH", "P2WPKH"],
+          "heuristics": {
+            "peeling_chain": {"detected": true, "confidence": 0.88},
+            "change_detection": {"detected": true, "confidence": 0.72},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "mno123pqr456stu789vwx123yza456bcd789efg123hij456klm789nop123qrs5",
+          "classification": "payment",
+          "fee_rate": 22.8,
+          "script_types": ["P2TR"],
+          "heuristics": {
+            "cioh": {"detected": true, "confidence": 0.65},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0},
+            "coinjoin": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "pqr456stu789vwx123yza456bcd789efg123hij456klm789nop123qrs456tuv6",
+          "classification": "op_return",
+          "fee_rate": 3.5,
+          "script_types": ["P2PKH", "OP_RETURN"],
+          "heuristics": {
+            "op_return": {"detected": true, "confidence": 1.0},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "stu789vwx123yza456bcd789efg123hij456klm789nop123qrs456tuv789wxy7",
+          "classification": "coinjoin",
+          "fee_rate": 15.2,
+          "script_types": ["P2WPKH", "P2SH", "P2TR"],
+          "heuristics": {
+            "coinjoin": {"detected": true, "confidence": 0.96},
+            "cioh": {"detected": true, "confidence": 0.78},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "vwx123yza456bcd789efg123hij456klm789nop123qrs456tuv789wxy123zab8",
+          "classification": "payment",
+          "fee_rate": 185.2,
+          "script_types": ["P2WPKH"],
+          "heuristics": {
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": true, "confidence": 0.82},
+            "address_reuse": {"detected": true, "confidence": 0.91},
+            "coinjoin": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "yza456bcd789efg123hij456klm789nop123qrs456tuv789wxy123zab456cde9",
+          "classification": "consolidation",
+          "fee_rate": 5.8,
+          "script_types": ["P2PKH", "P2SH"],
+          "heuristics": {
+            "consolidation": {"detected": true, "confidence": 0.89},
+            "cioh": {"detected": true, "confidence": 0.55},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "bcd789efg123hij456klm789nop123qrs456tuv789wxy123zab456cde789fgh0",
+          "classification": "payment",
+          "fee_rate": 1.5,
+          "script_types": ["P2TR"],
+          "heuristics": {
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0},
+            "coinjoin": {"detected": false, "confidence": 0.0}
           }
         }
       ]
     },
     {
-      "block_height": 789125,
-      "block_hash": "0000000000000000000890abc456def123789abc456def789123abc456def7890",
-      "timestamp": 1704068400,
-      "transaction_count": 55,
+      "block_hash": "0000000000000000000567def123abc789456def789abc123456def789abc1234",
+      "block_height": 789124,
+      "block_timestamp": 1684000600,
+      "tx_count": 45,
       "transactions": [
         {
-          "txid": "mno789pqr123stu456vwx789yza123bcd456efg789hij123klm456nop789qrs4",
-          "inputs": [
-            {
-              "address": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
-              "value": 0.19
-            },
-            {
-              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
-              "value": 0.49
-            }
-          ],
-          "outputs": [
-            {
-              "address": "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
-              "value": 0.5
-            },
-            {
-              "address": "1JwSSubhmg6iPtRjtyqhUYYH7bZg3Lfy1T",
-              "value": 0.17
-            }
-          ],
-          "flags": ["address_reuse", "round_number"],
+          "txid": "efg123hij456klm789nop123qrs456tuv789wxy123zab456cde789fgh123ijk1",
+          "classification": "peeling",
+          "fee_rate": 28.4,
+          "script_types": ["P2WPKH"],
           "heuristics": {
-            "address_reuse": true,
-            "round_number": true,
-            "change_detection": false,
-            "timing_analysis": false
+            "peeling_chain": {"detected": true, "confidence": 0.94},
+            "change_detection": {"detected": true, "confidence": 0.88},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "hij456klm789nop123qrs456tuv789wxy123zab456cde789fgh123ijk456lmn2",
+          "classification": "coinjoin",
+          "fee_rate": 18.9,
+          "script_types": ["P2SH", "P2WPKH"],
+          "heuristics": {
+            "coinjoin": {"detected": true, "confidence": 0.91},
+            "cioh": {"detected": true, "confidence": 0.82},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "klm789nop123qrs456tuv789wxy123zab456cde789fgh123ijk456lmn789opq3",
+          "classification": "payment",
+          "fee_rate": 55.6,
+          "script_types": ["P2PKH"],
+          "heuristics": {
+            "address_reuse": {"detected": true, "confidence": 0.97},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": true, "confidence": 0.68},
+            "coinjoin": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "nop123qrs456tuv789wxy123zab456cde789fgh123ijk456lmn789opq123rst4",
+          "classification": "op_return",
+          "fee_rate": 4.2,
+          "script_types": ["P2WPKH", "OP_RETURN"],
+          "heuristics": {
+            "op_return": {"detected": true, "confidence": 1.0},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "qrs456tuv789wxy123zab456cde789fgh123ijk456lmn789opq123rst456uvw5",
+          "classification": "consolidation",
+          "fee_rate": 7.1,
+          "script_types": ["P2TR", "P2WPKH"],
+          "heuristics": {
+            "consolidation": {"detected": true, "confidence": 0.86},
+            "cioh": {"detected": true, "confidence": 0.62},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        }
+      ]
+    },
+    {
+      "block_hash": "0000000000000000000890abc456def123789abc456def789123abc456def7890",
+      "block_height": 789125,
+      "block_timestamp": 1684001200,
+      "tx_count": 55,
+      "transactions": [
+        {
+          "txid": "tuv789wxy123zab456cde789fgh123ijk456lmn789opq123rst456uvw789xyz1",
+          "classification": "payment",
+          "fee_rate": 32.7,
+          "script_types": ["P2WPKH", "P2SH"],
+          "heuristics": {
+            "cioh": {"detected": true, "confidence": 0.73},
+            "change_detection": {"detected": true, "confidence": 0.85},
+            "address_reuse": {"detected": false, "confidence": 0.0},
+            "coinjoin": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "wxy123zab456cde789fgh123ijk456lmn789opq123rst456uvw789xyz123abc2",
+          "classification": "coinjoin",
+          "fee_rate": 14.3,
+          "script_types": ["P2WPKH", "P2TR"],
+          "heuristics": {
+            "coinjoin": {"detected": true, "confidence": 0.93},
+            "cioh": {"detected": true, "confidence": 0.87},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "zab456cde789fgh123ijk456lmn789opq123rst456uvw789xyz123abc456def3",
+          "classification": "peeling",
+          "fee_rate": 42.1,
+          "script_types": ["P2SH"],
+          "heuristics": {
+            "peeling_chain": {"detected": true, "confidence": 0.91},
+            "change_detection": {"detected": true, "confidence": 0.79},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": true, "confidence": 0.65}
+          }
+        },
+        {
+          "txid": "cde789fgh123ijk456lmn789opq123rst456uvw789xyz123abc456def789ghi4",
+          "classification": "payment",
+          "fee_rate": 98.5,
+          "script_types": ["P2PKH", "P2WPKH"],
+          "heuristics": {
+            "address_reuse": {"detected": true, "confidence": 0.88},
+            "cioh": {"detected": true, "confidence": 0.71},
+            "change_detection": {"detected": true, "confidence": 0.92},
+            "coinjoin": {"detected": false, "confidence": 0.0}
+          }
+        },
+        {
+          "txid": "fgh123ijk456lmn789opq123rst456uvw789xyz123abc456def789ghi123jkl5",
+          "classification": "op_return",
+          "fee_rate": 2.8,
+          "script_types": ["P2TR", "OP_RETURN"],
+          "heuristics": {
+            "op_return": {"detected": true, "confidence": 1.0},
+            "cioh": {"detected": false, "confidence": 0.0},
+            "change_detection": {"detected": false, "confidence": 0.0},
+            "address_reuse": {"detected": false, "confidence": 0.0}
           }
         }
       ]
