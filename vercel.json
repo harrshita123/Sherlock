@@ -1,9 +1,15 @@
 {
   "version": 2,
+  "buildCommand": "",
+  "outputDirectory": "public",
   "builds": [
     {
       "src": "api/**/*.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -21,7 +27,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/sherlock/web/static/index.html"
+      "dest": "/public/index.html"
     }
   ]
 }
