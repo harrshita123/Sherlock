@@ -5,7 +5,7 @@ import os
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         files = []
-        out_dir = os.path.join(os.path.dirname(__file__), '..', 'out')
+        out_dir = os.path.join(os.path.dirname(__file__), '..', 'public', 'out')
         if os.path.exists(out_dir):
             files = [f.replace(".json", "") for f in os.listdir(out_dir) if f.endswith(".json")]
         

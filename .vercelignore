@@ -1,6 +1,8 @@
 # Exclude large data files from deployment
 fixtures/
+# Keep public/out for sample JSON files, but exclude root out/
 out/
+!public/out/
 *.dat.gz
 *.dat
 

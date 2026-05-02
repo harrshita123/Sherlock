@@ -26,6 +26,10 @@
       "dest": "/api/analyze.py"
     },
     {
+      "src": "/out/(.*)",
+      "dest": "/public/out/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/index.html"
     }

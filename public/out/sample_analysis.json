@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "mode": "chain_analysis",
+  "file": "sample_report.dat",
+  "block_count": 3,
+  "analysis_summary": {
+    "total_transactions_analyzed": 150,
+    "total_inputs": 320,
+    "total_outputs": 425,
+    "flagged_transactions": 5,
+    "heuristics_applied": ["address_reuse", "round_number", "change_detection", "timing_analysis"]
+  },
+  "blocks": [
+    {
+      "block_height": 789123,
+      "block_hash": "0000000000000000000234abc789def456789abc123def456789abcdef123456",
+      "timestamp": 1704067200,
+      "transaction_count": 50,
+      "transactions": [
+        {
+          "txid": "abc123def456789abcdef123456789abcdef123456789abcdef123456789abc1",
+          "inputs": [
+            {
+              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+              "value": 0.5,
+              "prev_txid": "def456789abc123def456789abc123def456789abc123def456789abc123def4"
+            }
+          ],
+          "outputs": [
+            {
+              "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+              "value": 0.3
+            },
+            {
+              "address": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+              "value": 0.19
+            }
+          ],
+          "flags": [],
+          "heuristics": {
+            "address_reuse": false,
+            "round_number": false,
+            "change_detection": true,
+            "timing_analysis": false
+          }
+        },
+        {
+          "txid": "def789abc123456789abcdef123456789abcdef123456789abcdef123456789d2",
+          "inputs": [
+            {
+              "address": "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2",
+              "value": 1.0
+            }
+          ],
+          "outputs": [
+            {
+              "address": "1CounterpartyXXXXXXXXXXXXXXXUWLpVr",
+              "value": 0.5
+            },
+            {
+              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+              "value": 0.49
+            }
+          ],
+          "flags": ["address_reuse", "round_number"],
+          "heuristics": {
+            "address_reuse": true,
+            "round_number": true,
+            "change_detection": false,
+            "timing_analysis": false
+          }
+        }
+      ]
+    },
+    {
+      "block_height": 789124,
+      "block_hash": "0000000000000000000567def123abc789456def789abc123456def789abc1234",
+      "timestamp": 1704067800,
+      "transaction_count": 45,
+      "transactions": [
+        {
+          "txid": "ghi456jkl789mno123pqr456stu789vwx123yza456bcd789efg123hij456klm3",
+          "inputs": [
+            {
+              "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+              "value": 0.3
+            }
+          ],
+          "outputs": [
+            {
+              "address": "bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4",
+              "value": 0.1
+            },
+            {
+              "address": "bc1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3qccfmv3",
+              "value": 0.19
+            }
+          ],
+          "flags": ["timing_analysis"],
+          "heuristics": {
+            "address_reuse": false,
+            "round_number": false,
+            "change_detection": true,
+            "timing_analysis": true
+          }
+        }
+      ]
+    },
+    {
+      "block_height": 789125,
+      "block_hash": "0000000000000000000890abc456def123789abc456def789123abc456def7890",
+      "timestamp": 1704068400,
+      "transaction_count": 55,
+      "transactions": [
+        {
+          "txid": "mno789pqr123stu456vwx789yza123bcd456efg789hij123klm456nop789qrs4",
+          "inputs": [
+            {
+              "address": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+              "value": 0.19
+            },
+            {
+              "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+              "value": 0.49
+            }
+          ],
+          "outputs": [
+            {
+              "address": "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
+              "value": 0.5
+            },
+            {
+              "address": "1JwSSubhmg6iPtRjtyqhUYYH7bZg3Lfy1T",
+              "value": 0.17
+            }
+          ],
+          "flags": ["address_reuse", "round_number"],
+          "heuristics": {
+            "address_reuse": true,
+            "round_number": true,
+            "change_detection": false,
+            "timing_analysis": false
+          }
+        }
+      ]
+    }
+  ]
+}
