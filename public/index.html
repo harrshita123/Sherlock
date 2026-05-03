@@ -123,17 +123,24 @@
     }
 
     .controls select {
-      appearance: auto;
-      -webkit-appearance: auto;
-      -moz-appearance: auto;
+      appearance: menulist;
+      -webkit-appearance: menulist;
+      -moz-appearance: menulist;
       cursor: pointer;
       min-width: 150px;
+      position: relative;
+      z-index: 100;
     }
 
     .controls select option {
       background: #1e293b;
       color: white;
       padding: 0.5rem;
+    }
+
+    #fileSelect {
+      background-color: #1e293b;
+      color: white;
     }
 
     .stats-grid {
