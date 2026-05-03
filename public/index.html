@@ -710,29 +710,32 @@
       <div class="upload-section">
         <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">INGEST DATA FILES</div>
         <div class="upload-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
-          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
-            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">BLOCK DATA</div>
-            <select id="blkSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
-              <option value="blk04330.dat" selected>blk04330.dat</option>
+          <div id="blkCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">BLOCK DATA</div>
+            <select id="blkSelect" onchange="updateCardStyle('blkCard', this.value)" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="">...</option>
+              <option value="blk04330.dat">blk04330.dat</option>
               <option value="blk05051.dat">blk05051.dat</option>
             </select>
           </div>
-          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
-            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">UNDO DATA</div>
-            <select id="revSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
-              <option value="rev04330.dat" selected>rev04330.dat</option>
+          <div id="revCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">UNDO DATA</div>
+            <select id="revSelect" onchange="updateCardStyle('revCard', this.value)" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="">...</option>
+              <option value="rev04330.dat">rev04330.dat</option>
               <option value="rev05051.dat">rev05051.dat</option>
             </select>
           </div>
-          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
-            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">XOR KEY</div>
-            <select id="xorSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
-              <option value="xor.dat" selected>xor.dat</option>
+          <div id="xorCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">XOR KEY</div>
+            <select id="xorSelect" onchange="updateCardStyle('xorCard', this.value)" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="">...</option>
+              <option value="xor.dat">xor.dat</option>
             </select>
           </div>
         </div>
         <div class="upload-actions" style="margin-top: 2rem;">
-          <button id="analyzeBtn" class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);" onclick="handleServerAnalysis()">Launch Analysis</button>
+          <button id="analyzeBtn" class="btn-primary" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);" onclick="handleServerAnalysis()">Launch Analysis</button>
           <div id="uploadStatus" class="upload-status-msg"></div>
         </div>
       </div>
@@ -951,6 +954,20 @@
           btn.style.color = '';
         }, 2000);
       });
+    }
+
+    function updateCardStyle(cardId, value) {
+      const card = document.getElementById(cardId);
+      const label = card.querySelector('.file-card-label');
+      if (value && value !== '...') {
+        card.style.background = 'rgba(16, 185, 129, 0.08)';
+        card.style.borderColor = '#10b981';
+        label.style.color = '#10b981';
+      } else {
+        card.style.background = 'var(--card-bg)';
+        card.style.borderColor = 'var(--border-color)';
+        label.style.color = 'var(--text-dim)';
+      }
     }
 
     async function handleServerAnalysis() {
