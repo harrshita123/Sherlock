@@ -708,36 +708,31 @@
   <main>
     <div class="container">
       <div class="upload-section">
-        <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">SELECT BLOCK DATA</div>
-        <div class="upload-subtitle" style="font-size:0.9rem; color: var(--text-dim); margin-bottom:1.5rem;">
-          Choose from available Bitcoin block data files stored on the server.
-        </div>
-        <div class="upload-grid">
-          <div class="upload-field">
-            <label style="font-size:0.7rem; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">Block Data</label>
-            <select id="blkSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
-              <option value="">Select a block file...</option>
-              <option value="blk04330.dat">blk04330.dat</option>
+        <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">INGEST DATA FILES</div>
+        <div class="upload-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
+            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">BLOCK DATA</div>
+            <select id="blkSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="blk04330.dat" selected>blk04330.dat</option>
               <option value="blk05051.dat">blk05051.dat</option>
             </select>
           </div>
-          <div class="upload-field">
-            <label style="font-size:0.7rem; color: var(--accent-secondary); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">Undo Data</label>
-            <select id="revSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
-              <option value="">Auto-detected</option>
-              <option value="rev04330.dat">rev04330.dat</option>
+          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
+            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">UNDO DATA</div>
+            <select id="revSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="rev04330.dat" selected>rev04330.dat</option>
               <option value="rev05051.dat">rev05051.dat</option>
             </select>
           </div>
-          <div class="upload-field">
-            <label style="font-size:0.7rem; color: var(--warning); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">XOR Key</label>
-            <select id="xorSelect" class="file-select" style="width:100%; padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); font-size: 0.9rem;">
-              <option value="xor.dat" selected>xor.dat (default)</option>
+          <div class="file-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 8px; padding: 1.5rem; text-align: center;">
+            <div style="color: #10b981; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">XOR KEY</div>
+            <select id="xorSelect" style="width: 100%; background: transparent; border: none; color: var(--text-primary); font-size: 1rem; text-align: center; cursor: pointer; outline: none;">
+              <option value="xor.dat" selected>xor.dat</option>
             </select>
           </div>
         </div>
         <div class="upload-actions" style="margin-top: 2rem;">
-          <button id="analyzeBtn" class="btn-primary" onclick="handleServerAnalysis()">Launch Analysis</button>
+          <button id="analyzeBtn" class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);" onclick="handleServerAnalysis()">Launch Analysis</button>
           <div id="uploadStatus" class="upload-status-msg"></div>
         </div>
       </div>
