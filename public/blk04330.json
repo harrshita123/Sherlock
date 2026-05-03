@@ -2,130 +2,795 @@
   "ok": true,
   "mode": "chain_analysis",
   "file": "blk04330.dat",
-  "block_count": 10,
+  "block_count": 84,
   "analysis_summary": {
-    "total_transactions_analyzed": 1850,
-    "flagged_transactions": 156,
-    "heuristics_applied": ["coinjoin", "address_reuse", "round_amounts", "cioh", "change_detection"]
+    "total_transactions_analyzed": 16532,
+    "flagged_transactions": 1599,
+    "script_type_distribution": {
+      "P2WPKH": 45,
+      "P2TR": 25,
+      "P2PKH": 10,
+      "P2SH": 8,
+      "P2SH-P2WPKH": 7,
+      "OP_RETURN": 5
+    },
+    "classification_distribution": {
+      "payment": 60,
+      "coinjoin": 15,
+      "consolidation": 12,
+      "peeling": 8,
+      "op_return": 5
+    },
+    "fee_rate_stats": {
+      "min": 5.2,
+      "max": 125.8,
+      "median": 22.5,
+      "mean": 28.3
+    },
+    "heuristic_flags": {
+      "coinjoin": 18,
+      "cioh": 12,
+      "address_reuse": 8,
+      "change_detection": 15,
+      "round_amount": 10
+    }
   },
   "blocks": [
     {
       "block_height": 843000,
-      "block_hash": "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054",
-      "block_timestamp": 1715184000,
-      "tx_count": 150,
-      "analysis_summary": { "flagged_transactions": 12 },
-      "transactions": [
-        { "txid": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456", "fee_rate": 25.5, "size": 225, "vsize": 141, "input_count": 2, "output_count": 2, "total_input_value": 50000000, "total_output_value": 49996375, "script_types": ["P2WPKH", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.1 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.75 }, "cioh": { "detected": false, "confidence": 0.2 }, "change_detection": { "detected": true, "confidence": 0.85 } } },
-        { "txid": "b2c3d4e5f67890123456789012345678901abcdef2345678901abcdef234567", "fee_rate": 18.2, "size": 450, "vsize": 282, "input_count": 5, "output_count": 5, "total_input_value": 100000000, "total_output_value": 99994860, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.92 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.95 }, "cioh": { "detected": false, "confidence": 0.1 }, "change_detection": { "detected": false, "confidence": 0.3 } } },
-        { "txid": "c3d4e5f678901234567890123456789012abcdef3456789012abcdef345678", "fee_rate": 32.8, "size": 180, "vsize": 110, "input_count": 1, "output_count": 2, "total_input_value": 25000000, "total_output_value": 24996388, "script_types": ["P2SH", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.05 }, "address_reuse": { "detected": true, "confidence": 0.88 }, "round_amounts": { "detected": false, "confidence": 0.2 }, "cioh": { "detected": true, "confidence": 0.78 }, "change_detection": { "detected": true, "confidence": 0.92 } } },
-        { "txid": "d4e5f6789012345678901234567890123abcdef4567890123abcdef456789", "fee_rate": 15.0, "size": 520, "vsize": 325, "input_count": 8, "output_count": 1, "total_input_value": 80000000, "total_output_value": 79995125, "script_types": ["P2PKH"], "classification": "consolidation", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": true, "confidence": 0.65 }, "round_amounts": { "detected": false, "confidence": 0.1 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": false, "confidence": 0.0 } } },
-        { "txid": "e5f67890123456789012345678901234abcdef5678901234abcdef5678901", "fee_rate": 42.5, "size": 280, "vsize": 175, "input_count": 1, "output_count": 15, "total_input_value": 150000000, "total_output_value": 149992625, "script_types": ["P2TR", "P2TR", "P2TR", "P2WPKH", "P2WPKH"], "classification": "peeling", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.15 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.82 }, "cioh": { "detected": false, "confidence": 0.25 }, "change_detection": { "detected": true, "confidence": 0.78 } } }
-      ]
+      "block_hash": "00000000000000000008547552f1a7e3883b77e18d2b89",
+      "block_timestamp": "2024-08-05T21:00:00.000Z",
+      "transaction_count": 119,
+      "analysis_summary": {
+        "flagged_transactions": 6
+      }
     },
     {
       "block_height": 843001,
-      "block_hash": "00000000000000000001b8c4d2f59e87d6b48013276b381267c8b9e83839b165",
-      "block_timestamp": 1715184600,
-      "tx_count": 180,
-      "analysis_summary": { "flagged_transactions": 15 },
-      "transactions": [
-        { "txid": "f6789012345678901234567890123456abcdef6789012345abcdef67890123", "fee_rate": 28.3, "size": 195, "vsize": 122, "input_count": 1, "output_count": 2, "total_input_value": 35000000, "total_output_value": 34996245, "script_types": ["P2WPKH", "OP_RETURN"], "classification": "op_return", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": false, "confidence": 0.35 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": true, "confidence": 0.88 } } },
-        { "txid": "0789012345678901234567890123456abcdef78901234567abcdef789012345", "fee_rate": 22.1, "size": 340, "vsize": 212, "input_count": 3, "output_count": 2, "total_input_value": 75000000, "total_output_value": 74995318, "script_types": ["P2SH-P2WPKH", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.08 }, "address_reuse": { "detected": false, "confidence": 0.12 }, "round_amounts": { "detected": true, "confidence": 0.68 }, "cioh": { "detected": true, "confidence": 0.72 }, "change_detection": { "detected": true, "confidence": 0.95 } } },
-        { "txid": "g890123456789012345678901234567abcdef89012345678abcdef890123456", "fee_rate": 35.7, "size": 420, "vsize": 263, "input_count": 4, "output_count": 3, "total_input_value": 120000000, "total_output_value": 119990650, "script_types": ["P2WPKH", "P2TR", "P2TR"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.12 }, "address_reuse": { "detected": true, "confidence": 0.55 }, "round_amounts": { "detected": true, "confidence": 0.78 }, "cioh": { "detected": true, "confidence": 0.65 }, "change_detection": { "detected": true, "confidence": 0.91 } } }
-      ]
+      "block_hash": "0000000000000000000306558b0fcccc0ca6379009f15",
+      "block_timestamp": "2024-08-05T22:07:00.000Z",
+      "transaction_count": 222,
+      "analysis_summary": {
+        "flagged_transactions": 33
+      }
     },
     {
       "block_height": 843002,
-      "block_hash": "00000000000000000003c9d5e3f6a098e7c59124387c492378d9ca094a4ac276",
-      "block_timestamp": 1715185200,
-      "tx_count": 120,
-      "analysis_summary": { "flagged_transactions": 18 },
-      "transactions": [
-        { "txid": "1890123456789012345678901234567abcdef8901234567abcdef8901234567", "fee_rate": 55.0, "size": 850, "vsize": 531, "input_count": 10, "output_count": 10, "total_input_value": 500000000, "total_output_value": 499970789, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.98 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.99 }, "cioh": { "detected": false, "confidence": 0.05 }, "change_detection": { "detected": false, "confidence": 0.15 } } },
-        { "txid": "2901234567890123456789012345678abcdef9012345678abcdef90123456789", "fee_rate": 12.5, "size": 225, "vsize": 141, "input_count": 2, "output_count": 2, "total_input_value": 20000000, "total_output_value": 19998237, "script_types": ["P2PKH", "P2PKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.02 }, "address_reuse": { "detected": true, "confidence": 0.75 }, "round_amounts": { "detected": false, "confidence": 0.45 }, "cioh": { "detected": true, "confidence": 0.82 }, "change_detection": { "detected": true, "confidence": 0.88 } } }
-      ]
+      "block_hash": "000000000000000000022ad276581cb38696c6c2e3e0e8",
+      "block_timestamp": "2024-08-05T23:14:00.000Z",
+      "transaction_count": 259,
+      "analysis_summary": {
+        "flagged_transactions": 15
+      }
     },
     {
       "block_height": 843003,
-      "block_hash": "00000000000000000004d0e6f4g7b109f8d6a235498d593489eadb1a5b5bd387",
-      "block_timestamp": 1715185800,
-      "tx_count": 200,
-      "analysis_summary": { "flagged_transactions": 22 },
-      "transactions": [
-        { "txid": "3012345678901234567890123456789abcdef0123456789abcdef012345678a", "fee_rate": 45.2, "size": 380, "vsize": 238, "input_count": 3, "output_count": 4, "total_input_value": 85000000, "total_output_value": 84989260, "script_types": ["P2WPKH", "P2TR", "P2TR", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.08 }, "address_reuse": { "detected": false, "confidence": 0.15 }, "round_amounts": { "detected": true, "confidence": 0.72 }, "cioh": { "detected": true, "confidence": 0.68 }, "change_detection": { "detected": true, "confidence": 0.89 } } },
-        { "txid": "4123456789012345678901234567890abcdef1234567890abcdef123456789b", "fee_rate": 62.8, "size": 920, "vsize": 575, "input_count": 12, "output_count": 12, "total_input_value": 750000000, "total_output_value": 749963900, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.96 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.98 }, "cioh": { "detected": false, "confidence": 0.02 }, "change_detection": { "detected": false, "confidence": 0.08 } } },
-        { "txid": "5234567890123456789012345678901abcdef2345678901abcdef234567890c", "fee_rate": 19.5, "size": 265, "vsize": 166, "input_count": 2, "output_count": 3, "total_input_value": 42000000, "total_output_value": 41996762, "script_types": ["P2SH", "P2WPKH", "OP_RETURN"], "classification": "op_return", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": true, "confidence": 0.62 }, "round_amounts": { "detected": false, "confidence": 0.28 }, "cioh": { "detected": false, "confidence": 0.15 }, "change_detection": { "detected": true, "confidence": 0.82 } } }
-      ]
+      "block_hash": "0000000000000000000a0ce29cc3f0ee373ede8ba2dc88",
+      "block_timestamp": "2024-08-06T00:21:00.000Z",
+      "transaction_count": 216,
+      "analysis_summary": {
+        "flagged_transactions": 29
+      }
     },
     {
       "block_height": 843004,
-      "block_hash": "00000000000000000005e1f7g5h8c210g9e7b346509e6a4590fbec2b6c6ce498",
-      "block_timestamp": 1715186400,
-      "tx_count": 165,
-      "analysis_summary": { "flagged_transactions": 14 },
-      "transactions": [
-        { "txid": "6345678901234567890123456789012abcdef3456789012abcdef34567890d", "fee_rate": 38.9, "size": 310, "vsize": 194, "input_count": 2, "output_count": 2, "total_input_value": 65000000, "total_output_value": 64992446, "script_types": ["P2TR", "P2TR"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.05 }, "address_reuse": { "detected": false, "confidence": 0.08 }, "round_amounts": { "detected": true, "confidence": 0.85 }, "cioh": { "detected": false, "confidence": 0.22 }, "change_detection": { "detected": true, "confidence": 0.94 } } },
-        { "txid": "7456789012345678901234567890123abcdef4567890123abcdef45678901e", "fee_rate": 28.4, "size": 480, "vsize": 300, "input_count": 6, "output_count": 2, "total_input_value": 180000000, "total_output_value": 179991480, "script_types": ["P2WPKH", "P2WPKH"], "classification": "consolidation", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": true, "confidence": 0.78 }, "round_amounts": { "detected": false, "confidence": 0.12 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": false, "confidence": 0.05 } } }
-      ]
+      "block_hash": "0000000000000000000f05c0d2e08f1a6d6b0a0d3c2c88",
+      "block_timestamp": "2024-08-06T01:28:00.000Z",
+      "transaction_count": 297,
+      "analysis_summary": {
+        "flagged_transactions": 23
+      }
     },
     {
       "block_height": 843005,
-      "block_hash": "00000000000000000006f2g8h6i9d321h0f8c4576a0f7b56a1gcfd3c7d7df5a9",
-      "block_timestamp": 1715187000,
-      "tx_count": 195,
-      "analysis_summary": { "flagged_transactions": 19 },
-      "transactions": [
-        { "txid": "8567890123456789012345678901234abcdef5678901234abcdef567890f", "fee_rate": 52.3, "size": 720, "vsize": 450, "input_count": 8, "output_count": 8, "total_input_value": 320000000, "total_output_value": 319976460, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.94 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.96 }, "cioh": { "detected": false, "confidence": 0.08 }, "change_detection": { "detected": false, "confidence": 0.12 } } },
-        { "txid": "9678901234567890123456789012345abcdef6789012345abcdef67890123g", "fee_rate": 16.8, "size": 245, "vsize": 153, "input_count": 1, "output_count": 5, "total_input_value": 28000000, "total_output_value": 27997430, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "peeling", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.18 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.65 }, "cioh": { "detected": false, "confidence": 0.32 }, "change_detection": { "detected": true, "confidence": 0.75 } } }
-      ]
+      "block_hash": "000000000000000000006048b5a9f8fdeb68d93188b86",
+      "block_timestamp": "2024-08-06T02:35:00.000Z",
+      "transaction_count": 274,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
     },
     {
       "block_height": 843006,
-      "block_hash": "00000000000000000007g3h9i7j0e432i1g9d5687b1g8c67b2hdge4d8e8eg6ba",
-      "block_timestamp": 1715187600,
-      "tx_count": 210,
-      "analysis_summary": { "flagged_transactions": 25 },
-      "transactions": [
-        { "txid": "0789012345678901234567890123456abcdef7890123456abcdef78901234h", "fee_rate": 72.5, "size": 1100, "vsize": 688, "input_count": 15, "output_count": 15, "total_input_value": 1200000000, "total_output_value": 1199950100, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.99 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.99 }, "cioh": { "detected": false, "confidence": 0.01 }, "change_detection": { "detected": false, "confidence": 0.05 } } },
-        { "txid": "1890123456789012345678901234567abcdef8901234567abcdef89012345i", "fee_rate": 24.6, "size": 285, "vsize": 178, "input_count": 2, "output_count": 2, "total_input_value": 55000000, "total_output_value": 54995618, "script_types": ["P2SH-P2WPKH", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.05 }, "address_reuse": { "detected": true, "confidence": 0.72 }, "round_amounts": { "detected": true, "confidence": 0.58 }, "cioh": { "detected": true, "confidence": 0.85 }, "change_detection": { "detected": true, "confidence": 0.92 } } }
-      ]
+      "block_hash": "00000000000000000003fa75e7dc19dc6fcd3c979efa6",
+      "block_timestamp": "2024-08-06T03:42:00.000Z",
+      "transaction_count": 121,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      }
     },
     {
       "block_height": 843007,
-      "block_hash": "00000000000000000008h4i0j8k1f543j2h0e6798c2h9d78c3iehf5e9f9fh7cb",
-      "block_timestamp": 1715188200,
-      "tx_count": 175,
-      "analysis_summary": { "flagged_transactions": 11 },
-      "transactions": [
-        { "txid": "2901234567890123456789012345678abcdef9012345678abcdef90123456j", "fee_rate": 31.2, "size": 350, "vsize": 219, "input_count": 3, "output_count": 3, "total_input_value": 92000000, "total_output_value": 91993172, "script_types": ["P2TR", "P2TR", "P2TR"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.1 }, "address_reuse": { "detected": false, "confidence": 0.18 }, "round_amounts": { "detected": false, "confidence": 0.42 }, "cioh": { "detected": true, "confidence": 0.58 }, "change_detection": { "detected": true, "confidence": 0.86 } } },
-        { "txid": "3012345678901234567890123456789abcdef0123456789abcdef01234567k", "fee_rate": 8.5, "size": 680, "vsize": 425, "input_count": 10, "output_count": 1, "total_input_value": 95000000, "total_output_value": 94996388, "script_types": ["P2PKH"], "classification": "consolidation", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": true, "confidence": 0.92 }, "round_amounts": { "detected": false, "confidence": 0.08 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": false, "confidence": 0.0 } } }
-      ]
+      "block_hash": "00000000000000000005002921c7cbde0e475907658328",
+      "block_timestamp": "2024-08-06T04:49:00.000Z",
+      "transaction_count": 202,
+      "analysis_summary": {
+        "flagged_transactions": 31
+      }
     },
     {
       "block_height": 843008,
-      "block_hash": "00000000000000000009i5j1k9l2g654k3i1f78a9d3i0e89d4jfig6f0g0gi8dc",
-      "block_timestamp": 1715188800,
-      "tx_count": 225,
-      "analysis_summary": { "flagged_transactions": 28 },
-      "transactions": [
-        { "txid": "4123456789012345678901234567890abcdef1234567890abcdef12345678l", "fee_rate": 48.9, "size": 560, "vsize": 350, "input_count": 5, "output_count": 6, "total_input_value": 280000000, "total_output_value": 279982850, "script_types": ["P2WPKH", "P2TR", "P2TR", "P2TR", "P2TR", "P2WPKH"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.15 }, "address_reuse": { "detected": true, "confidence": 0.48 }, "round_amounts": { "detected": true, "confidence": 0.82 }, "cioh": { "detected": true, "confidence": 0.72 }, "change_detection": { "detected": true, "confidence": 0.95 } } },
-        { "txid": "5234567890123456789012345678901abcdef2345678901abcdef2345678m", "fee_rate": 85.2, "size": 1250, "vsize": 781, "input_count": 18, "output_count": 18, "total_input_value": 2500000000, "total_output_value": 2499933487, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.99 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 1.0 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": false, "confidence": 0.02 } } },
-        { "txid": "6345678901234567890123456789012abcdef3456789012abcdef345678n", "fee_rate": 22.3, "size": 198, "vsize": 124, "input_count": 1, "output_count": 2, "total_input_value": 15000000, "total_output_value": 14997235, "script_types": ["P2WPKH", "OP_RETURN"], "classification": "op_return", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": false, "confidence": 0.05 }, "round_amounts": { "detected": false, "confidence": 0.38 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": true, "confidence": 0.78 } } }
-      ]
+      "block_hash": "00000000000000000006b34736606e01808113529757358",
+      "block_timestamp": "2024-08-06T05:56:00.000Z",
+      "transaction_count": 137,
+      "analysis_summary": {
+        "flagged_transactions": 34
+      }
     },
     {
       "block_height": 843009,
-      "block_hash": "0000000000000000000aj6k2l0m3h765l4j2g89b0e4j1f90e5kgjh7g1h1hj9ed",
-      "block_timestamp": 1715189400,
-      "tx_count": 230,
-      "analysis_summary": { "flagged_transactions": 32 },
-      "transactions": [
-        { "txid": "7456789012345678901234567890123abcdef4567890123abcdef456789o", "fee_rate": 42.1, "size": 415, "vsize": 259, "input_count": 4, "output_count": 3, "total_input_value": 145000000, "total_output_value": 144989081, "script_types": ["P2WPKH", "P2TR", "P2TR"], "classification": "payment", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.08 }, "address_reuse": { "detected": false, "confidence": 0.22 }, "round_amounts": { "detected": true, "confidence": 0.78 }, "cioh": { "detected": true, "confidence": 0.65 }, "change_detection": { "detected": true, "confidence": 0.88 } } },
-        { "txid": "8567890123456789012345678901234abcdef5678901234abcdef56789p", "fee_rate": 58.6, "size": 780, "vsize": 488, "input_count": 9, "output_count": 9, "total_input_value": 450000000, "total_output_value": 449971397, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "coinjoin", "heuristics": { "coinjoin": { "detected": true, "confidence": 0.95 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.97 }, "cioh": { "detected": false, "confidence": 0.05 }, "change_detection": { "detected": false, "confidence": 0.1 } } },
-        { "txid": "9678901234567890123456789012345abcdef6789012345abcdef6789q", "fee_rate": 15.8, "size": 540, "vsize": 338, "input_count": 7, "output_count": 1, "total_input_value": 72000000, "total_output_value": 71994659, "script_types": ["P2PKH"], "classification": "consolidation", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.0 }, "address_reuse": { "detected": true, "confidence": 0.88 }, "round_amounts": { "detected": false, "confidence": 0.15 }, "cioh": { "detected": false, "confidence": 0.0 }, "change_detection": { "detected": false, "confidence": 0.0 } } },
-        { "txid": "0789012345678901234567890123456abcdef7890123456abcdef789r", "fee_rate": 35.4, "size": 295, "vsize": 184, "input_count": 1, "output_count": 8, "total_input_value": 98000000, "total_output_value": 97993486, "script_types": ["P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH", "P2WPKH"], "classification": "peeling", "heuristics": { "coinjoin": { "detected": false, "confidence": 0.22 }, "address_reuse": { "detected": false, "confidence": 0.0 }, "round_amounts": { "detected": true, "confidence": 0.72 }, "cioh": { "detected": false, "confidence": 0.35 }, "change_detection": { "detected": true, "confidence": 0.68 } } }
-      ]
+      "block_hash": "00000000000000000001b47244c917f7559d750bcd2628",
+      "block_timestamp": "2024-08-06T06:03:00.000Z",
+      "transaction_count": 292,
+      "analysis_summary": {
+        "flagged_transactions": 28
+      }
+    },
+    {
+      "block_height": 843010,
+      "block_hash": "0000000000000000000b9170f9f6c9e9c0ec2972beb4b8",
+      "block_timestamp": "2024-08-07T07:10:00.000Z",
+      "transaction_count": 242,
+      "analysis_summary": {
+        "flagged_transactions": 27
+      }
+    },
+    {
+      "block_height": 843011,
+      "block_hash": "0000000000000000000d8d28e8797e308a19037340ba9f",
+      "block_timestamp": "2024-08-07T08:17:00.000Z",
+      "transaction_count": 194,
+      "analysis_summary": {
+        "flagged_transactions": 31
+      }
+    },
+    {
+      "block_height": 843012,
+      "block_hash": "000000000000000000045c8ba9a777f42744542b1dbd28",
+      "block_timestamp": "2024-08-07T09:24:00.000Z",
+      "transaction_count": 199,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
+    },
+    {
+      "block_height": 843013,
+      "block_hash": "0000000000000000000ca254e360c254e830f4dbc60fb",
+      "block_timestamp": "2024-08-07T10:31:00.000Z",
+      "transaction_count": 224,
+      "analysis_summary": {
+        "flagged_transactions": 14
+      }
+    },
+    {
+      "block_height": 843014,
+      "block_hash": "00000000000000000001437a363467c88f0e963be7d1f5",
+      "block_timestamp": "2024-08-07T11:38:00.000Z",
+      "transaction_count": 223,
+      "analysis_summary": {
+        "flagged_transactions": 12
+      }
+    },
+    {
+      "block_height": 843015,
+      "block_hash": "0000000000000000000d1b67fe118b4f8cc73253339136",
+      "block_timestamp": "2024-08-07T12:45:00.000Z",
+      "transaction_count": 229,
+      "analysis_summary": {
+        "flagged_transactions": 20
+      }
+    },
+    {
+      "block_height": 843016,
+      "block_hash": "0000000000000000000907d2aa0eeec58dfa87f50a48cd",
+      "block_timestamp": "2024-08-07T13:52:00.000Z",
+      "transaction_count": 130,
+      "analysis_summary": {
+        "flagged_transactions": 32
+      }
+    },
+    {
+      "block_height": 843017,
+      "block_hash": "0000000000000000000d7add07652c9489c243517ddd5a8",
+      "block_timestamp": "2024-08-07T14:59:00.000Z",
+      "transaction_count": 135,
+      "analysis_summary": {
+        "flagged_transactions": 27
+      }
+    },
+    {
+      "block_height": 843018,
+      "block_hash": "0000000000000000000344f5b9a836657a3f9f33919328",
+      "block_timestamp": "2024-08-07T15:06:00.000Z",
+      "transaction_count": 136,
+      "analysis_summary": {
+        "flagged_transactions": 30
+      }
+    },
+    {
+      "block_height": 843019,
+      "block_hash": "000000000000000000077f8eef6a082a82bebf712f0d0b8",
+      "block_timestamp": "2024-08-07T16:13:00.000Z",
+      "transaction_count": 270,
+      "analysis_summary": {
+        "flagged_transactions": 30
+      }
+    },
+    {
+      "block_height": 843020,
+      "block_hash": "00000000000000000009eb3b2644219c8e13526df9cc5d8",
+      "block_timestamp": "2024-08-08T17:20:00.000Z",
+      "transaction_count": 247,
+      "analysis_summary": {
+        "flagged_transactions": 6
+      }
+    },
+    {
+      "block_height": 843021,
+      "block_hash": "000000000000000000041190550f86482e13b0502788",
+      "block_timestamp": "2024-08-08T18:27:00.000Z",
+      "transaction_count": 236,
+      "analysis_summary": {
+        "flagged_transactions": 13
+      }
+    },
+    {
+      "block_height": 843022,
+      "block_hash": "000000000000000000079738ce113ee46a120fa95e0488",
+      "block_timestamp": "2024-08-08T19:34:00.000Z",
+      "transaction_count": 261,
+      "analysis_summary": {
+        "flagged_transactions": 28
+      }
+    },
+    {
+      "block_height": 843023,
+      "block_hash": "00000000000000000007558bcbf9bdf28b1a7bb09003b7",
+      "block_timestamp": "2024-08-08T20:41:00.000Z",
+      "transaction_count": 183,
+      "analysis_summary": {
+        "flagged_transactions": 12
+      }
+    },
+    {
+      "block_height": 843024,
+      "block_hash": "00000000000000000001a3626f7f360b818ee06b5abfdf",
+      "block_timestamp": "2024-08-07T21:48:00.000Z",
+      "transaction_count": 145,
+      "analysis_summary": {
+        "flagged_transactions": 15
+      }
+    },
+    {
+      "block_height": 843025,
+      "block_hash": "000000000000000000073999d53be3158dd582babf27e6",
+      "block_timestamp": "2024-08-07T22:55:00.000Z",
+      "transaction_count": 226,
+      "analysis_summary": {
+        "flagged_transactions": 19
+      }
+    },
+    {
+      "block_height": 843026,
+      "block_hash": "00000000000000000007d8e2eb2dd0b70b80db4531e128",
+      "block_timestamp": "2024-08-07T23:02:00.000Z",
+      "transaction_count": 287,
+      "analysis_summary": {
+        "flagged_transactions": 29
+      }
+    },
+    {
+      "block_height": 843027,
+      "block_hash": "000000000000000000099e34617dd04614fab0fc48252",
+      "block_timestamp": "2024-08-08T00:09:00.000Z",
+      "transaction_count": 175,
+      "analysis_summary": {
+        "flagged_transactions": 33
+      }
+    },
+    {
+      "block_height": 843028,
+      "block_hash": "0000000000000000000a6fad7938bdd1d2a7196cd2b888",
+      "block_timestamp": "2024-08-08T01:16:00.000Z",
+      "transaction_count": 235,
+      "analysis_summary": {
+        "flagged_transactions": 27
+      }
+    },
+    {
+      "block_height": 843029,
+      "block_hash": "0000000000000000000aba6493ea935a82a39dbc53e4698",
+      "block_timestamp": "2024-08-08T02:23:00.000Z",
+      "transaction_count": 168,
+      "analysis_summary": {
+        "flagged_transactions": 16
+      }
+    },
+    {
+      "block_height": 843030,
+      "block_hash": "0000000000000000000c7081d0346d7e6e9e99bd482c9",
+      "block_timestamp": "2024-08-09T03:30:00.000Z",
+      "transaction_count": 138,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
+    },
+    {
+      "block_height": 843031,
+      "block_hash": "0000000000000000000a1cfb92ef3c334b0097bb5b86b",
+      "block_timestamp": "2024-08-09T04:37:00.000Z",
+      "transaction_count": 101,
+      "analysis_summary": {
+        "flagged_transactions": 11
+      }
+    },
+    {
+      "block_height": 843032,
+      "block_hash": "0000000000000000000ef7384e64e10283982750e028c7",
+      "block_timestamp": "2024-08-09T05:44:00.000Z",
+      "transaction_count": 260,
+      "analysis_summary": {
+        "flagged_transactions": 14
+      }
+    },
+    {
+      "block_height": 843033,
+      "block_hash": "0000000000000000000c88d037ba661f4e8719e245e3c",
+      "block_timestamp": "2024-08-09T06:51:00.000Z",
+      "transaction_count": 101,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
+    },
+    {
+      "block_height": 843034,
+      "block_hash": "00000000000000000008f4587299c54389e8cdd6958efb",
+      "block_timestamp": "2024-08-09T07:58:00.000Z",
+      "transaction_count": 249,
+      "analysis_summary": {
+        "flagged_transactions": 24
+      }
+    },
+    {
+      "block_height": 843035,
+      "block_hash": "000000000000000000042883d4c93ebf8cabccce0b4c47",
+      "block_timestamp": "2024-08-09T08:05:00.000Z",
+      "transaction_count": 122,
+      "analysis_summary": {
+        "flagged_transactions": 34
+      }
+    },
+    {
+      "block_height": 843036,
+      "block_hash": "00000000000000000003ee00e766963a86600794101e7c8",
+      "block_timestamp": "2024-08-09T09:12:00.000Z",
+      "transaction_count": 298,
+      "analysis_summary": {
+        "flagged_transactions": 34
+      }
+    },
+    {
+      "block_height": 843037,
+      "block_hash": "00000000000000000000c349f1654a948d8d7fbe029f2a8",
+      "block_timestamp": "2024-08-09T10:19:00.000Z",
+      "transaction_count": 228,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843038,
+      "block_hash": "000000000000000000051cd3b2b1ba2e9aed01fbdde2f8",
+      "block_timestamp": "2024-08-09T11:26:00.000Z",
+      "transaction_count": 289,
+      "analysis_summary": {
+        "flagged_transactions": 11
+      }
+    },
+    {
+      "block_height": 843039,
+      "block_hash": "00000000000000000000af691dd5c77b80adbd09c64fb9",
+      "block_timestamp": "2024-08-09T12:33:00.000Z",
+      "transaction_count": 233,
+      "analysis_summary": {
+        "flagged_transactions": 14
+      }
+    },
+    {
+      "block_height": 843040,
+      "block_hash": "000000000000000000095f08012c5e69aac1555d1984c",
+      "block_timestamp": "2024-08-10T13:40:00.000Z",
+      "transaction_count": 110,
+      "analysis_summary": {
+        "flagged_transactions": 22
+      }
+    },
+    {
+      "block_height": 843041,
+      "block_hash": "00000000000000000001c112f9de860755b74955610378",
+      "block_timestamp": "2024-08-10T14:47:00.000Z",
+      "transaction_count": 139,
+      "analysis_summary": {
+        "flagged_transactions": 31
+      }
+    },
+    {
+      "block_height": 843042,
+      "block_hash": "00000000000000000000f2dfc8b5121883bb0937c377a38",
+      "block_timestamp": "2024-08-10T15:54:00.000Z",
+      "transaction_count": 250,
+      "analysis_summary": {
+        "flagged_transactions": 21
+      }
+    },
+    {
+      "block_height": 843043,
+      "block_hash": "00000000000000000008f37f2f7fa759c24646d7e4ea88",
+      "block_timestamp": "2024-08-10T16:01:00.000Z",
+      "transaction_count": 264,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843044,
+      "block_hash": "0000000000000000000cb40dedf2e6b28c85ccb0b67df8",
+      "block_timestamp": "2024-08-10T17:08:00.000Z",
+      "transaction_count": 246,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      }
+    },
+    {
+      "block_height": 843045,
+      "block_hash": "000000000000000000053c40e208ce17d639ddde5371f8",
+      "block_timestamp": "2024-08-10T18:15:00.000Z",
+      "transaction_count": 132,
+      "analysis_summary": {
+        "flagged_transactions": 17
+      }
+    },
+    {
+      "block_height": 843046,
+      "block_hash": "0000000000000000000ec448944c851987d039b19040728",
+      "block_timestamp": "2024-08-10T19:22:00.000Z",
+      "transaction_count": 165,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      }
+    },
+    {
+      "block_height": 843047,
+      "block_hash": "0000000000000000000bed314616fb46e0770410b62f58",
+      "block_timestamp": "2024-08-10T20:29:00.000Z",
+      "transaction_count": 269,
+      "analysis_summary": {
+        "flagged_transactions": 15
+      }
+    },
+    {
+      "block_height": 843048,
+      "block_hash": "0000000000000000000c2e49ceaf7a0e8061521cd78576",
+      "block_timestamp": "2024-08-09T21:36:00.000Z",
+      "transaction_count": 217,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843049,
+      "block_hash": "0000000000000000000e072dba2a414b1a6bb505297918",
+      "block_timestamp": "2024-08-09T22:43:00.000Z",
+      "transaction_count": 157,
+      "analysis_summary": {
+        "flagged_transactions": 19
+      }
+    },
+    {
+      "block_height": 843050,
+      "block_hash": "0000000000000000000513ade3166a9a8cd05e6e3b2e018",
+      "block_timestamp": "2024-08-10T23:50:00.000Z",
+      "transaction_count": 228,
+      "analysis_summary": {
+        "flagged_transactions": 32
+      }
+    },
+    {
+      "block_height": 843051,
+      "block_hash": "0000000000000000000644844c4331698de83beddf258",
+      "block_timestamp": "2024-08-11T00:57:00.000Z",
+      "transaction_count": 129,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843052,
+      "block_hash": "0000000000000000000f1da9c24c83762444f738873fa8",
+      "block_timestamp": "2024-08-11T01:04:00.000Z",
+      "transaction_count": 233,
+      "analysis_summary": {
+        "flagged_transactions": 13
+      }
+    },
+    {
+      "block_height": 843053,
+      "block_hash": "000000000000000000030f7b227fba4c83782c42ea0f4c",
+      "block_timestamp": "2024-08-11T02:11:00.000Z",
+      "transaction_count": 139,
+      "analysis_summary": {
+        "flagged_transactions": 6
+      }
+    },
+    {
+      "block_height": 843054,
+      "block_hash": "0000000000000000000b098593a6276f97b412a7e36f48",
+      "block_timestamp": "2024-08-11T03:18:00.000Z",
+      "transaction_count": 169,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
+    },
+    {
+      "block_height": 843055,
+      "block_hash": "00000000000000000000fc9022bae5e4fb57f2a575b2c",
+      "block_timestamp": "2024-08-11T04:25:00.000Z",
+      "transaction_count": 247,
+      "analysis_summary": {
+        "flagged_transactions": 24
+      }
+    },
+    {
+      "block_height": 843056,
+      "block_hash": "0000000000000000000d9239a273a881b7957398b22418",
+      "block_timestamp": "2024-08-11T05:32:00.000Z",
+      "transaction_count": 181,
+      "analysis_summary": {
+        "flagged_transactions": 24
+      }
+    },
+    {
+      "block_height": 843057,
+      "block_hash": "0000000000000000000d4564dc0b98468fed0681c44b928",
+      "block_timestamp": "2024-08-11T06:39:00.000Z",
+      "transaction_count": 113,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843058,
+      "block_hash": "000000000000000000037d8bc0408d898b276542279f03",
+      "block_timestamp": "2024-08-11T07:46:00.000Z",
+      "transaction_count": 226,
+      "analysis_summary": {
+        "flagged_transactions": 22
+      }
+    },
+    {
+      "block_height": 843059,
+      "block_hash": "0000000000000000000badb97c15a78a95b75080ef50b8",
+      "block_timestamp": "2024-08-11T08:53:00.000Z",
+      "transaction_count": 141,
+      "analysis_summary": {
+        "flagged_transactions": 18
+      }
+    },
+    {
+      "block_height": 843060,
+      "block_hash": "00000000000000000002d11706b7542882dc87a0f84b0e",
+      "block_timestamp": "2024-08-12T09:00:00.000Z",
+      "transaction_count": 124,
+      "analysis_summary": {
+        "flagged_transactions": 5
+      }
+    },
+    {
+      "block_height": 843061,
+      "block_hash": "0000000000000000000211877b67f3728013f9702b81a4",
+      "block_timestamp": "2024-08-12T10:07:00.000Z",
+      "transaction_count": 171,
+      "analysis_summary": {
+        "flagged_transactions": 23
+      }
+    },
+    {
+      "block_height": 843062,
+      "block_hash": "0000000000000000000da1479f3d3f28db96092820f6d",
+      "block_timestamp": "2024-08-12T11:14:00.000Z",
+      "transaction_count": 242,
+      "analysis_summary": {
+        "flagged_transactions": 22
+      }
+    },
+    {
+      "block_height": 843063,
+      "block_hash": "000000000000000000036ca7c0cf8af4c96eb3b5071b28",
+      "block_timestamp": "2024-08-12T12:21:00.000Z",
+      "transaction_count": 116,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843064,
+      "block_hash": "00000000000000000007a997415869038a2715a06b5b32",
+      "block_timestamp": "2024-08-12T13:28:00.000Z",
+      "transaction_count": 234,
+      "analysis_summary": {
+        "flagged_transactions": 30
+      }
+    },
+    {
+      "block_height": 843065,
+      "block_hash": "00000000000000000009fdc27d69b5aa8ba4f567130d688",
+      "block_timestamp": "2024-08-12T14:35:00.000Z",
+      "transaction_count": 182,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      }
+    },
+    {
+      "block_height": 843066,
+      "block_hash": "0000000000000000000ea8c64262677ad10d7673f0352",
+      "block_timestamp": "2024-08-12T15:42:00.000Z",
+      "transaction_count": 296,
+      "analysis_summary": {
+        "flagged_transactions": 5
+      }
+    },
+    {
+      "block_height": 843067,
+      "block_hash": "000000000000000000040397baf25017339139d4e4ec28",
+      "block_timestamp": "2024-08-12T16:49:00.000Z",
+      "transaction_count": 111,
+      "analysis_summary": {
+        "flagged_transactions": 23
+      }
+    },
+    {
+      "block_height": 843068,
+      "block_hash": "0000000000000000000d03426a567b0a8a1f7c5f367e44",
+      "block_timestamp": "2024-08-12T17:56:00.000Z",
+      "transaction_count": 108,
+      "analysis_summary": {
+        "flagged_transactions": 20
+      }
+    },
+    {
+      "block_height": 843069,
+      "block_hash": "000000000000000000044800e2c1118419a9004f0f29",
+      "block_timestamp": "2024-08-12T18:03:00.000Z",
+      "transaction_count": 131,
+      "analysis_summary": {
+        "flagged_transactions": 19
+      }
+    },
+    {
+      "block_height": 843070,
+      "block_hash": "000000000000000000050ef1d5a2b3ccb3616ca7f830d8",
+      "block_timestamp": "2024-08-13T19:10:00.000Z",
+      "transaction_count": 160,
+      "analysis_summary": {
+        "flagged_transactions": 25
+      }
+    },
+    {
+      "block_height": 843071,
+      "block_hash": "0000000000000000000c556d5bcd1028e1a1a5b5ca359",
+      "block_timestamp": "2024-08-13T20:17:00.000Z",
+      "transaction_count": 279,
+      "analysis_summary": {
+        "flagged_transactions": 34
+      }
+    },
+    {
+      "block_height": 843072,
+      "block_hash": "0000000000000000000126bf89ec7b5cb8c8687ffd2b8",
+      "block_timestamp": "2024-08-12T21:24:00.000Z",
+      "transaction_count": 255,
+      "analysis_summary": {
+        "flagged_transactions": 23
+      }
+    },
+    {
+      "block_height": 843073,
+      "block_hash": "0000000000000000000a436ebc5eaaccd8211005cb9f2",
+      "block_timestamp": "2024-08-12T22:31:00.000Z",
+      "transaction_count": 143,
+      "analysis_summary": {
+        "flagged_transactions": 19
+      }
+    },
+    {
+      "block_height": 843074,
+      "block_hash": "00000000000000000005eb459873c15e1fe0fc3c2473b8",
+      "block_timestamp": "2024-08-12T23:38:00.000Z",
+      "transaction_count": 251,
+      "analysis_summary": {
+        "flagged_transactions": 16
+      }
+    },
+    {
+      "block_height": 843075,
+      "block_hash": "00000000000000000008868275087a6682cc50d9ed3a688",
+      "block_timestamp": "2024-08-13T00:45:00.000Z",
+      "transaction_count": 159,
+      "analysis_summary": {
+        "flagged_transactions": 17
+      }
+    },
+    {
+      "block_height": 843076,
+      "block_hash": "0000000000000000000cc21926d27c638295decd05ddf3",
+      "block_timestamp": "2024-08-13T01:52:00.000Z",
+      "transaction_count": 193,
+      "analysis_summary": {
+        "flagged_transactions": 21
+      }
+    },
+    {
+      "block_height": 843077,
+      "block_hash": "0000000000000000000cd2ffa49177cd8a790d39314a2c8",
+      "block_timestamp": "2024-08-13T02:59:00.000Z",
+      "transaction_count": 158,
+      "analysis_summary": {
+        "flagged_transactions": 24
+      }
+    },
+    {
+      "block_height": 843078,
+      "block_hash": "0000000000000000000a6f2d5911e0bdcadca41d966c78",
+      "block_timestamp": "2024-08-13T03:06:00.000Z",
+      "transaction_count": 109,
+      "analysis_summary": {
+        "flagged_transactions": 16
+      }
+    },
+    {
+      "block_height": 843079,
+      "block_hash": "00000000000000000008ed5e04d51e85ce640db1b05888",
+      "block_timestamp": "2024-08-13T04:13:00.000Z",
+      "transaction_count": 137,
+      "analysis_summary": {
+        "flagged_transactions": 22
+      }
+    },
+    {
+      "block_height": 843080,
+      "block_hash": "0000000000000000000738be8c02bf258b6dad38590355",
+      "block_timestamp": "2024-08-14T05:20:00.000Z",
+      "transaction_count": 115,
+      "analysis_summary": {
+        "flagged_transactions": 5
+      }
+    },
+    {
+      "block_height": 843081,
+      "block_hash": "000000000000000000077ff21f315d1682d60fc3feab5d",
+      "block_timestamp": "2024-08-14T06:27:00.000Z",
+      "transaction_count": 258,
+      "analysis_summary": {
+        "flagged_transactions": 13
+      }
+    },
+    {
+      "block_height": 843082,
+      "block_hash": "00000000000000000001dcf758702c019ea98d48efc08",
+      "block_timestamp": "2024-08-14T07:34:00.000Z",
+      "transaction_count": 294,
+      "analysis_summary": {
+        "flagged_transactions": 9
+      }
+    },
+    {
+      "block_height": 843083,
+      "block_hash": "0000000000000000000aafa1030a7ce8a9270219346108",
+      "block_timestamp": "2024-08-14T08:41:00.000Z",
+      "transaction_count": 248,
+      "analysis_summary": {
+        "flagged_transactions": 6
+      }
     }
   ]
 }
