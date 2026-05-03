@@ -4,7 +4,7 @@ Sherlock is a forensic tool that looks at raw Bitcoin data to find hidden patter
 
 > **Note**: This project was developed for **Summer of Bitcoin** and represents an **upgraded, high-performance version** of the original analysis engine.
 
-**🌐 Live Demo: [https://web-production-af9c7.up.railway.app/](https://web-production-af9c7.up.railway.app/)**
+**🌐 Live Demo: [(https://sherlock-pearl.vercel.app/)**
 
 
 ## 🎯 What this project does
