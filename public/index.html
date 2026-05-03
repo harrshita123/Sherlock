@@ -709,37 +709,37 @@
     <div class="container">
       <div class="upload-section">
         <div class="upload-title" style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">INGEST DATA FILES</div>
-        <div class="upload-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;">
-          <div id="blkCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.5rem 0.75rem; transition: all 0.3s ease;">
-            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; margin-bottom: 0.25rem;">BLOCK DATA</div>
+        <div class="upload-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1rem;">
+          <div id="blkCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.4rem 0.5rem; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.55rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; margin-bottom: 0.15rem;">BLOCK DATA</div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <select id="blkSelect" onchange="updateCardStyle('blkCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.8rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
+              <select id="blkSelect" onchange="updateCardStyle('blkCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.75rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
                 <option value="">...</option>
                 <option value="blk04330.dat">blk04330.dat</option>
                 <option value="blk05051.dat">blk05051.dat</option>
               </select>
-              <span style="color: var(--text-dim); font-size: 0.6rem; pointer-events: none;">▼</span>
+              <span style="color: var(--text-dim); font-size: 0.5rem; pointer-events: none;">▼</span>
             </div>
           </div>
-          <div id="revCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.5rem 0.75rem; transition: all 0.3s ease;">
-            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; margin-bottom: 0.25rem;">UNDO DATA</div>
+          <div id="revCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.4rem 0.5rem; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.55rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; margin-bottom: 0.15rem;">UNDO DATA</div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <select id="revSelect" onchange="updateCardStyle('revCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.8rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
+              <select id="revSelect" onchange="updateCardStyle('revCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.75rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
                 <option value="">...</option>
                 <option value="rev04330.dat">rev04330.dat</option>
                 <option value="rev05051.dat">rev05051.dat</option>
               </select>
-              <span style="color: var(--text-dim); font-size: 0.6rem; pointer-events: none;">▼</span>
+              <span style="color: var(--text-dim); font-size: 0.5rem; pointer-events: none;">▼</span>
             </div>
           </div>
-          <div id="xorCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.5rem 0.75rem; transition: all 0.3s ease;">
-            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; margin-bottom: 0.25rem;">XOR KEY</div>
+          <div id="xorCard" class="file-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.4rem 0.5rem; transition: all 0.3s ease;">
+            <div class="file-card-label" style="color: var(--text-dim); font-size: 0.55rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; margin-bottom: 0.15rem;">XOR KEY</div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <select id="xorSelect" onchange="updateCardStyle('xorCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.8rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
+              <select id="xorSelect" onchange="updateCardStyle('xorCard', this.value)" style="flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 0.75rem; text-align: center; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
                 <option value="">...</option>
                 <option value="xor.dat">xor.dat</option>
               </select>
-              <span style="color: var(--text-dim); font-size: 0.6rem; pointer-events: none;">▼</span>
+              <span style="color: var(--text-dim); font-size: 0.5rem; pointer-events: none;">▼</span>
             </div>
           </div>
         </div>
