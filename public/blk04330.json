@@ -10,10 +10,13 @@
   },
   "blocks": [
     {
-      "height": 843000,
-      "hash": "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054",
-      "timestamp": 1715184000,
+      "block_height": 843000,
+      "block_hash": "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054",
+      "block_timestamp": 1715184000,
       "tx_count": 150,
+      "analysis_summary": {
+        "flagged_transactions": 12
+      },
       "transactions": [
         {
           "txid": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456",
@@ -113,10 +116,13 @@
       ]
     },
     {
-      "height": 843001,
-      "hash": "00000000000000000001b8c4d2f59e87d6b48013276b381267c8b9e83839b165",
-      "timestamp": 1715184600,
+      "block_height": 843001,
+      "block_hash": "00000000000000000001b8c4d2f59e87d6b48013276b381267c8b9e83839b165",
+      "block_timestamp": 1715184600,
       "tx_count": 180,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      },
       "transactions": [
         {
           "txid": "f6789012345678901234567890123456abcdef6789012345abcdef67890123",
@@ -159,10 +165,13 @@
       ]
     },
     {
-      "height": 843002,
-      "hash": "00000000000000000003c9d5e3f6a098e7c59124387c492378d9ca094a4ac276",
-      "timestamp": 1715185200,
+      "block_height": 843002,
+      "block_hash": "00000000000000000003c9d5e3f6a098e7c59124387c492378d9ca094a4ac276",
+      "block_timestamp": 1715185200,
       "tx_count": 120,
+      "analysis_summary": {
+        "flagged_transactions": 8
+      },
       "transactions": [
         {
           "txid": "1890123456789012345678901234567abcdef8901234567abcdef8901234567",
